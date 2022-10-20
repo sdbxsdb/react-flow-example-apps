@@ -6,9 +6,12 @@ import ReactFlow, {
   addEdge,
   Connection,
   Edge,
+  Controls,
+  Background
 } from 'reactflow';
 
 import CustomNode from './CustomNode';
+
 
 // this is important! You need to import the styles from the lib to make it work
 import 'reactflow/dist/style.css';
@@ -18,6 +21,8 @@ import './Flow.css';
 const nodeTypes = {
   custom: CustomNode,
 };
+
+
 
 const initialNodes: Node[] = [
   {
@@ -45,7 +50,7 @@ const initialNodes: Node[] = [
 ];
 
 const initialEdges: Edge[] = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
+  { id: 'e1-2', source: '1', target: '2', animated: false },
   { id: 'e1-3', source: '1', target: '3', animated: true },
 ];
 
@@ -59,15 +64,7 @@ function Flow() {
 
   return (
     <div className="Flow">
-      <ReactFlow
-        nodes={nodes}
-        onNodesChange={onNodesChange}
-        edges={edges}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        fitView
-        nodeTypes={nodeTypes}
-      />
+        <CustomNode/>
     </div>
   );
 }
